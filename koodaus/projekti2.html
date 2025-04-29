@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projekti 2</title>
+    <style>
+        #kuva {
+            max-width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img id="kuva" src="kuvat/doge.jpg">
+    <br />
+    <button onclick="ekaKuva()">ensimmäinen kuva</button>
+    <button onclick="vaihdaKuva(1)">seuraava kuva</button>
+    <button onclick="vaihdaKuva(-1)">edellinen kuva</button>
+    <button onclick="vikaKuva()">viimeinen kuva</button>
+    <button onclick="randomKuva() ">random kuva</button>
+    <br />
+    <h2>
+        hassuja kuvia
+    </h2>
+</body>
+<script>
+    var kuvalista = [
+        "brr brr patapim.jpg",
+        "doge.jpg",
+        "idris elba.jpg" ,
+        "skipidi.jpg" ,
+        "tommyinnit.jpg",
+        "locked in.jpg"
+    ]
+    var kuvaelementti = document.getElementById("kuva")
+
+    kuvaelementti.src = "kuvat/" + kuvalista[0]
+ 
+    var kuvaNumero = 0
+
+    function vaihdaKuva(muutos)
+    {
+        if (kuvaNumero + muutos <= 5 && kuvaNumero + muutos >= 0) {
+        kuvaNumero = kuvaNumero + muutos
+        }
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+    function ekaKuva() 
+    { 
+        kuvaNumero = 0
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+    function vikaKuva() 
+    {
+        kuvaNumero = kuvalista.length - 1
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+    function randomKuva() 
+    {
+        kuvaNumero = Math.floor(Math.random() * kuvalista.length)
+        kuvaelementti.src = "kuvat/" + kuvalista[kuvaNumero]
+    }
+
+
+</script>
+</html>
